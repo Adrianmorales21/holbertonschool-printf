@@ -4,21 +4,22 @@
  *
  *
  */
-int _printf(const char *format, ...)
+int _printf(const char* format, ...)
 {
 
 	int i;
-	fp_t fp;
+	int (*cf)(const char* format, ...); 
 	
-	va_list list;
-	va_start(list, format);
-	fp = (va_arg(list, char));
+	va_list args;
+	va_start(args, format);
+	cf = &call_functions;
+	
 	
 	
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		cf(format[i])(fp);
+		cf(&format[i]);
 	}
 
 	return (0);

@@ -5,15 +5,8 @@
 #include <stdarg.h>
 #include <stdlib.h>
 int print_string(char *c);
-int (*cf(char *s)(char));
+int call_functions(const char* format, ...);
 int _putchar(char c);
-int _printf(const char *format,...);
+int _printf(const char * format,...);
 
-
-
-typedef struct fp
-{	
-char *fp;
-int (*pt(char));
-} fp_t;
 #endif		
