@@ -8,7 +8,7 @@
  * Return: 1
  */
 
-int print_letter
+int print_letter(char c)
 {
 	putchar(c);
 	return (1);
