@@ -1,54 +1,61 @@
 #include "main.h"
+#include <stdarg.h>
 #include <stdio.h>
-#include <stdlib.h>
-
 /**
- * _print - function that works like main function in C
- * @i: variable
- * @a: variable
+ * _printf - function that works like main function in C
+ * @format: pointer
  * Return: variable
  */
 
 int _printf(const char *format, ...)
 {
-	int i, a
-	va_list j;
-	va_start (j, format);
-	i = 0 
-	a = 0
+	int p = 0, z = 0;
 
-	while (format[i] != '\0')
+	va_list(args);
+	va_start(args, format);
+
+	while (format[p] != '\0')
 	{
-		if (format[i] == '\0')
+		if (format[p] == '%')
 		{
-			switch(format[i]
-			{ 
+			switch (format[p + 1])
+			{
 				case 'c':
-					a += print_letter(va_arg(j, char));
+				{
+					z += print_letter(va_arg(args, int));
 					break;
-			
-			case 's':
-			
-				a += print_string(va_arg(j, char *));
+				}
+				case 's':
+				{
+					z += print_string(va_arg(args, char *));
+					break;
+				}
+				case '%':
+				{
+					z += print_per();
+					break;
+				}
+				case 'i':
+				case 'd':
+				{
+					z += print_int(va_arg(args, int));
+					break;
+				}
+				default:
+					z += print_per();
+					z += print_letter(format[p + 1]);
 				break;
-			
-			case '%':
-			
-				a += print_letter('%');
-				break;
-			
-			default;
-			break;
-			
-			else
-			
-				a += print_letter(format[i]);
 			}
-			i++;
+			p += 2;
+		}
+
+		else
+		{
+			z += print_letter(format[p]);
+			p++;
 		}
 	}
-	va_end(j);
-	return (a);
+
+	va_end(args);
+	return (z);
 }
-
-
