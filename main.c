@@ -10,10 +10,9 @@
 int main(void)
 {
 
+	_printf("esto esta bien cabron, -1998\n");
 
-     _printf("[%c]\n", 'H');
-    _printf("String:[%s]\n", "I am a string !");
-    _printf("Negative:[%d]\n", -762534);
+	_printf("pruebas\n");
 
-    return (0);
+	return 0;
 }

@@ -19,6 +19,11 @@ int call_functions(const char* format, va_list args)
                 pc += print_string(str);
                 break;
               }
+		case '%':{
+		print_per();
+		pc++;
+		break;
+	      }
                 case 'd':
                 case 'i':{
                                   int n = va_arg(args, int);
@@ -39,3 +44,4 @@ int call_functions(const char* format, va_list args)
 
     return pc;
 }
+
