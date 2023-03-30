@@ -1,8 +1,18 @@
 #include "main.h"
+/**
+ * print_int- prints integers
+ * @n:integer to print
+ * Return: numbers printed
+ */
 int print_int(int n)
 {
     int digits = 0;
     int neg = 0;
+
+    if(n == '\0')
+    {
+	    return (-1);
+    }
 
     if (n < 0) {
         neg = 1;

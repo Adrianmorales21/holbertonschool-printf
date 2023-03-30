@@ -1,4 +1,9 @@
 #include "main.h"
+/**
+ * print_string- prints a string
+ * @str: pointer to the string to print
+ * Return: number of characters printed
+ */
 int print_string(char *str)
 {
     int size, written, res;
