@@ -42,9 +42,7 @@ If an error occurs, the function returns a negative value.
 int main(void)
 {
 int n = 10;
-
-perl
-Copy code
+ 
 _printf("The value of n is %d\n", n);
 _printf("The value of pi is %f\n", 3.14159);
 _printf("The first letter of the alphabet is %c\n", 'A');
@@ -63,7 +61,7 @@ The word 'hello' backwards is olleh
 .fi
 
 .SH BUGS
-At the moment we only have one bug, when printing the negative values our custom printf function only prints 6 digits and the main function in C prints 7 digits (a 0 at the end of the output number).
+At there are no bugs that we are aware of.
 
 .SH AUTHOR
 Adrian Morales and Eduardo Figueroa
