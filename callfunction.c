@@ -1,28 +1,41 @@
 #include "main.h"
-int call_functions(const char* format, ...)
+int call_functions(const char* format, va_list args)
 {
-	 int i, pc;
-	 va_list args;
-	 va_start(args, format);
-	 
+    int i, pc;
+    pc = 0;
+
     for (i = 0; format[i] != '\0'; i++) {
-        switch (format[i]) {
-            case 's': {
-                char* str = va_arg(args, char*);
-		pc += print_string (str);
+        if (format[i] == '%') {
+            i++;
+            switch (format[i]) {
+              case 'c':{
+                char c = va_arg(args, int);
+                _putchar(c);
+                pc ++;
+                break;
+              }
+              case 's':{
+                char *str = va_arg(args, char*);
+                pc += print_string(str);
+                break;
+              }
+                case 'd':
+                case 'i':{
+                                  int n = va_arg(args, int);
+                pc += print_int(n);
                 break;
             }
-            case 'c': {
-                char a = va_arg(args, int);
-                _putchar(a);
-		pc++;
-                break;
+                default:
+                    _putchar('%');
+                    _putchar(format[i]);
+                    pc += 2;
+                    break;
             }
-            default:
-                break;
+        } else {
+            _putchar(format[i]);
+            pc++;
         }
     }
-    va_end(args);
 
-    return (pc);
+    return pc;
 }

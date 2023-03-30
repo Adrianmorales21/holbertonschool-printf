@@ -1,26 +1,15 @@
 #include "main.h"
-/**
- *
- *
- *
- */
 int _printf(const char* format, ...)
 {
-
-	int i;
-	int (*cf)(const char* format, ...); 
-	
-	va_list args;
-	va_start(args, format);
-	cf = &call_functions;
-	
-	
-	
-
-	for (i = 0; format[i] != '\0'; i++)
-	{
-		cf(&format[i]);
-	}
-
-	return (0);
+    va_list args;
+    va_start(args, format);
+    
+    if (format != NULL)
+    {
+    int pc = call_functions(format, args);
+    
+    va_end(args);
+    return pc;
+    }
+    return 0;
 }
