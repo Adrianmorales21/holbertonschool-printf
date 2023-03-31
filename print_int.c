@@ -14,7 +14,8 @@ int print_int(int n)
         return 1;
     }
 
-    if (n == INT_MIN) { // check for special case of INT_MIN
+    if (n == INT_MIN) 
+    { 
         digits += print_int(-(n + 1) / 10);
         _putchar('0' - (n % 10));
         digits++;
