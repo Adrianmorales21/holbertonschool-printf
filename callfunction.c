@@ -18,8 +18,16 @@ int call_functions(const char* format, va_list args)
     {
         if (format[i] != '%')
         {
-            _putchar(format[i]);
-            pc++;
+            if (format[i] == '\0')
+            {
+                putchar('\0');
+                pc++;
+            }
+            else
+            {
+                _putchar(format[i]);
+                pc++;
+            }
             continue;
         }
 
@@ -62,4 +70,3 @@ int call_functions(const char* format, va_list args)
 
     return pc;
 }
-

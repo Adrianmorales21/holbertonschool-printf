@@ -1,40 +1,33 @@
 #include "main.h"
 /**
- * print_int- prints integers
- * @n:integer to print
- * Return: numbers printed
+ * print_int - prints an integer
+ * @n: integer to print
+ * Return: number of digits printed
  */
 int print_int(int n)
 {
-    int digits = 0;
-    int neg = 0;
+    int pc = 0;
+    unsigned int num;
 
-    if (n == 0) {
-        _putchar('0');
-        return 1;
-    }
-
-    if (n == INT_MIN) 
-    { 
-        digits += print_int(-(n + 1) / 10);
-        _putchar('0' - (n % 10));
-        digits++;
-        return digits;
-    }
-
-    if (n < 0) {
-        neg = 1;
+    if (n < 0)
+    {
         _putchar('-');
-        digits++;
-        n = -n;
+        pc++;
+        num = -n;
+    }
+    else
+    {
+        num = n;
     }
 
-    if (n / 10)
-        digits += print_int(n / 10);
+    if (num > 9)
+    {
+        pc += print_int(num / 10);
+    }
 
-    _putchar(n % 10 + '0');
-    digits++;
+    _putchar((num % 10) + '0');
+    pc++;
 
-    return (digits + neg);
+    return pc;
 }
 
