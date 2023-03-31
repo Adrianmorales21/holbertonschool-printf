@@ -58,7 +58,7 @@ The following format specifiers are supported:
 %% - print a percent sign
 %d or %i - print a signed integer
 
-Contributing
+Contributing with the custom function
 Contributions to this project are welcome. To contribute, please follow these steps:
 
 Fork the repository.
