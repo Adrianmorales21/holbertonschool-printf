@@ -1,0 +1,77 @@
+.TH _printf 3 "November 29, 2023" "1.0" "User Commands"
+
+.SH NAME
+_printf - formatted output conversion function.
+
+.SH SYNOPSIS
+.nf
+#include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
+
+int _printf(const char *format, ...);
+.fi
+
+.SH DESCRIPTION
+The \fB_printf()\fP function writes the formatted output to stdout, according to the format string \fIformat\fP and the arguments passed as variable arguments.
+
+The \fIformat\fP string may contain conversion specifiers, which begin with the \fB%\fP character, and end with a conversion specifier character. Each conversion specifier character is associated with a particular type of argument that follows the format string, and the conversion specifier is replaced with the formatted output of the argument.
+
+.SH The supported conversion specifiers are:
+
+.TP 5n
+\fB%c\fP - prints a single character argument
+.TP 5n
+\fB%s\fP - prints a null-terminated string argument
+.TP 5n
+\fB%%\fP - prints a percent sign
+.TP 5n
+\fB%i\fP or \fB%d\fP - prints a signed integer argument
+
+If an unsupported conversion specifier is used, it is treated as a literal \fB%\fP character followed by the conversion specifier character.
+
+.SH RETURN VALUE
+The \fB_printf()\fP function returns the number of characters printed (excluding the null byte used to end the output to strings).
+
+If an error occurs, the function returns a negative value.
+
+.SH EXAMPLES
+.nf
+#include "main.h"
+
+int main(void)
+{
+int n = 10;
+ 
+_printf("The value of n is %d\n", n);
+_printf("The value of pi is %f\n", 3.14159);
+_printf("The first letter of the alphabet is %c\n", 'A');
+_printf("The word 'hello' backwards is %s\n", "olleh");
+
+return (0);
+}
+.fi
+
+Output:
+.nf
+The value of n is 10
+The value of pi is 3.141590
+The first letter of the alphabet is A
+The word 'hello' backwards is olleh
+.fi
+
+.SH BUGS
+At the moment there are no bugs that we are aware of.
+
+.SH AUTHOR
+Adrian Morales and Eduardo Figueroa
+
+.SH SEE ALSO
+.TP 5n
+printf(3)
+.TP 5n
+va_start(3)
+.TP 5n
+va_arg(3)
+.TP 5n
+va_end(3)
