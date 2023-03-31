@@ -5,6 +5,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 int print_string(char *c);
 int call_functions(const char* format, va_list args);
 int _putchar(char c);
