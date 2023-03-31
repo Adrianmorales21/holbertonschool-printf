@@ -9,16 +9,23 @@ int print_int(int n)
     int digits = 0;
     int neg = 0;
 
-    if(n == '\0')
-    {
-	    return (-1);
+    if (n == 0) {
+        _putchar('0');
+        return 1;
+    }
+
+    if (n == INT_MIN) { // check for special case of INT_MIN
+        digits += print_int(-(n + 1) / 10);
+        _putchar('0' - (n % 10));
+        digits++;
+        return digits;
     }
 
     if (n < 0) {
         neg = 1;
         _putchar('-');
         digits++;
-        n = abs(n);
+        n = -n;
     }
 
     if (n / 10)
